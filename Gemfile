@@ -47,6 +47,8 @@ gem 'sass-rails'
 gem 'jbuilder'
 gem 'wareki' #元号表示(平成や昭和など)に対応。案外使える
 
+# 本文抽出
+gem "extractcontent", github: "mono0x/extractcontent"
 
 
 group :development, :test do
