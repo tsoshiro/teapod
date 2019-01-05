@@ -1,11 +1,6 @@
 <div class="container">
   <h1>PlayEntry#home</h1>
   <div class="row">
-      <div class="col-md-12">
-        <h2><%= @title %></h2>
-      </div>
-  </div>
-  <div class="row">
     <div class="col-md-12">
       <button onclick="speak()" class="col-md-3 btn btn-primary">Press to manually speak</button>
       <button onClick="pause()" class="col-md-3 btn btn-default">Pause</button>
@@ -13,14 +8,20 @@
       <button onClick="cancel()" class="col-md-3 btn btn-danger">Cancel</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <p id="text">
-        <%= @body %>
-      </p>
+  <% @arr_cont.each do |cont| %>
+  <div class="row"><div class="col-md-12">
+          <h2><%= cont.title %></h2>
+        </div>
     </div>
-    <div class="col-md-4">
-      <p><%= @test_url %></p>
+    <div class="row">
+      <div class="col-md-8">
+        <p id="text">
+          <%= cont.body %>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p><%= cont.url %></p>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
