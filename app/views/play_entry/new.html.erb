@@ -1,0 +1,11 @@
+<%= provide(:button_text, "送信") %>
+<div class="container">
+  <h1>Type in url you want to play.</h1>
+  <div class="row">
+    <%= form_for(@content) do |f|%>
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control' %>
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
