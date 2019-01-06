@@ -7,6 +7,14 @@ class PlayEntryController < ApplicationController
   end
 
   def home
+    get_entry
+  end
+
+  def new
+    @content = Content.new
+  end
+
+  def sample
     arr_var = [
       "http://tnakamura.hatenablog.com/entry/2013/06/29/204726",
       "https://note.mu/knz2g/n/n43e38e89bd05",
@@ -16,7 +24,37 @@ class PlayEntryController < ApplicationController
 
     @arr_cont = []
     arr_var.each do |url|
-      @arr_cont << self.class.helpers.get_contents(url)
+      @arr_cont << get_contents(url)
     end
+  end
+
+  def get_entry
+    url = params[:content][:url]
+    puts "url is " + url
+
+    # 入力チェック
+    # rep = Regexp.new("^(http|https)://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$")
+    # if (rep != url)
+    #   # 再度入力させる
+    #   flash[:danger] = "無効なURLです"
+    #   redirect_to root_path
+    # end
+
+    @content = get_contents(url)
+  end
+
+  # URLから本文抽出
+  def get_contents(url = '')
+    content = Content.new
+
+    open(url) do |io|
+      html = io.read
+      body,title = ExtractContent.analyse(html)
+
+      content.body = body
+      content.title = title
+    end
+    content.url = url
+    content
   end
 end

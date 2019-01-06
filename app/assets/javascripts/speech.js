@@ -1,10 +1,11 @@
 function speak(){
   var msg = new SpeechSynthesisUtterance();
   // var text = sample_text();
-  var text = document.getElementById('text').innerHTML;
+  var text =
+  document.getElementById('title').innerHTML + document.getElementById('text').innerHTML;
   msg.text = text;
 
-  msg.rate = 1.5;
+  msg.rate = 1.25;
   speechSynthesis.speak(msg);
 }
 

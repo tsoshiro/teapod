@@ -1,0 +1,5 @@
+<%= form_for(@content, url: input_path) do |f|%>
+  <%= f.label :url %>
+  <%= f.text_field :url, class: 'form-control' %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
