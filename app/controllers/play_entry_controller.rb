@@ -7,11 +7,11 @@ class PlayEntryController < ApplicationController
   end
 
   def home
+    get_entry
   end
 
   def new
     @content = Content.new
-    puts "NEW??"
   end
 
   def sample
@@ -28,16 +28,19 @@ class PlayEntryController < ApplicationController
     end
   end
 
-  def get_entry(url)
-    # 入力チェック
-    rep = Regexp.new("^(http|https)://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$")
-    if (rep != url)
-      # 再度入力させる
-      flash[:danger] = "無効なURLです"
-      redirect_to root_path
-    end
+  def get_entry
+    url = params[:content][:url]
+    puts "url is " + url
 
-    content = get_contents(url)
+    # 入力チェック
+    # rep = Regexp.new("^(http|https)://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$")
+    # if (rep != url)
+    #   # 再度入力させる
+    #   flash[:danger] = "無効なURLです"
+    #   redirect_to root_path
+    # end
+
+    @content = get_contents(url)
   end
 
   # URLから本文抽出
