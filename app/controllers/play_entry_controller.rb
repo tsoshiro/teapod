@@ -33,12 +33,16 @@ class PlayEntryController < ApplicationController
     puts "url is " + url
 
     # 入力チェック
-    # rep = Regexp.new("^(http|https)://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$")
-    # if (rep != url)
-    #   # 再度入力させる
-    #   flash[:danger] = "無効なURLです"
-    #   redirect_to root_path
-    # end
+    rep = Regexp.new(/^(http|http):\/\/.*$/)
+    # rep = Regexp.new(/^(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?$/)
+    # rep = Regexp.new("\/^(http|https)://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$\/")
+    if !rep.match(url)
+      # 再度入力させる
+      flash[:danger] = "無効なURLです"
+      puts "Invalid URL"
+      redirect_to root_path
+      return
+    end
 
     @content = get_contents(url)
   end
