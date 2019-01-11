@@ -30,12 +30,9 @@ class PlayEntryController < ApplicationController
 
   def get_entry
     url = params[:content][:url]
-    puts "url is " + url
 
     # 入力チェック
     rep = Regexp.new(/^(http|http):\/\/.*$/)
-    # rep = Regexp.new(/^(http|https):\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?$/)
-    # rep = Regexp.new("\/^(http|https)://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$\/")
     if !rep.match(url)
       # 再度入力させる
       flash[:danger] = "無効なURLです"
