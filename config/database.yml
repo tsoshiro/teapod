@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: teapod_production
-  username: teapod
-  password: <%= ENV['TEAPOD_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
