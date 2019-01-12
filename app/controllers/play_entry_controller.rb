@@ -32,7 +32,7 @@ class PlayEntryController < ApplicationController
     url = params[:content][:url]
 
     # 入力チェック
-    rep = Regexp.new(/^(http|http):\/\/.*$/)
+    rep = Regexp.new(/^(http|https):\/\/.*$/)
     if !rep.match(url)
       # 再度入力させる
       flash[:danger] = "無効なURLです"
