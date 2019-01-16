@@ -17,6 +17,8 @@
         <%= content_tag(:div, message, class:"alert alert-#{message_type}") %>
       <% end %>
     </div>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>

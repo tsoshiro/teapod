@@ -1,36 +1,34 @@
 <%
 provide(:button_text, "他のURLを読み込む")
 %>
-<div class="container">
-  <h1>PlayEntry#home</h1>
-  <div class="row">
-    <h2>再読み込み</h2>
-    <div class="col-md-12">
-      <%= render 'form' %>
-    </div>
+<h1>PlayEntry#home</h1>
+<div class="row">
+  <h2>再読み込み</h2>
+  <div class="col-md-12">
+    <%= render 'form' %>
   </div>
-  <div class="row">
-    <h2>再生</h2>
-    <div class="col-md-12">
-      <button onclick="speak()" class="col-md-3 btn btn-primary">Press to manually speak</button>
-      <button onClick="pause()" class="col-md-3 btn btn-default">Pause</button>
-      <button onClick="resume()" class="col-md-3 btn btn-default">Resume</button>
-      <button onClick="cancel()" class="col-md-3 btn btn-danger">Cancel</button>
-    </div>
+</div>
+<div class="row">
+  <h2>再生</h2>
+  <div class="col-md-12">
+    <button onclick="speak()" class="btn btn-primary">Press to manually speak</button>
+    <button onClick="pause()" class="btn btn-default">Pause</button>
+    <button onClick="resume()" class="btn btn-default">Resume</button>
+    <button onClick="cancel()" class="btn btn-danger">Cancel</button>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <h2 id="title"><%= @content.title %></h2>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h2 id="title"><%= @content.title %></h2>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <p id="text">
-        <%= @content.body %>
-      </p>
-    </div>
-    <div class="col-md-4">
-      <p><%= @content.url %></p>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <p id="text">
+      <%= @content.body %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p><%=link_to "元記事を開く", @content.url, target: "_blank" %></p>
   </div>
 </div>
