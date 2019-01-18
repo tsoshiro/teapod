@@ -1,9 +1,13 @@
-<%= provide(:button_text, "送信") %>
-<div class="container">
-  <h1>Type in url you want to play.</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <%= render 'form' %>
-    </div>
+<%
+provide(:title, "")
+provide(:button_text, "コンテンツ取得")
+%>
+<div class="row">
+  <h1><%= APP_NAME %></h1>
+  <p class="center">読み上げてほしい記事のURLを入力してください。</p>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form' %>
   </div>
 </div>

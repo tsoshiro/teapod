@@ -1,6 +1,7 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*
+*= require_tree .
+*= require_self
 
-.row {
-  margin: 10px auto;
-}
+*= require font-awesome
+
+*/
