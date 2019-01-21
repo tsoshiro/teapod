@@ -1,3 +1,12 @@
+var dom = document.cloneNode(true);
+console.log(dom);
+
+var r = new Readability(dom);
+console.log(r);
+var article = r.parse();
+console.log(article.title);
+
+
 function speak(){
   var msg = new SpeechSynthesisUtterance();
   // var text = sample_text();
